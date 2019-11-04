@@ -1,0 +1,5 @@
+--Todo List--
+- Create Landing Page
+- Create Sign In/Sign Up
+- Create Team/Player Dashboard
+- Create Listings for Teams/Players
