@@ -1,46 +1,73 @@
 <?php
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="style.css">
-    <title></title>
-</head>
-<body>
+    require_once 'models/Database.php';
+    require_once 'models/validation.php';
+    require_once 'models/UserDA.php';
 
-<?php include 'view/components/nav.php' ?>
+    $action = filter_input(INPUT_POST, 'action');
 
-<header>
-    <div id="title-block">
-        <h1 id="title">LOOKING FOR TEAM</h1>
-        <h3 id="subtitle">Where Players and Teams Meet</h3>
-        <button id="get-started">Get Started</button>
-    </div>
-</header>
+    if($action == NULL) {
+        $action = filter_input(INPUT_GET, 'action');
+        if($action == NULL) {
+            $action = 'home';
+        }
 
-<section id="games">
-    <h1 class="section-header">Games</h1>
-
-    <ul id="games-list">
-        <li class="game-item">
-            <img src="assets/team-logos/overwatch.png" alt="Overwatch Logo" />
-        </li>
-        <li class="game-item">
-            <img src="assets/team-logos/csgo.png" alt="CSGO Logo">
-        </li>
-        <li class="game-item">
-            <img src="assets/team-logos/apex.png" alt="Apex Legends Logo">
-        </li>
-        <li class="game-item">
-            <img src="assets/team-logos/league-of-legends.png" alt="League of Legends Logo">
-        </li>
-    </ul>
-</section>
+    }
 
 
+    switch($action) {
+        case 'home':
+            
+            include('view/home.php');
+            break;
+
+        case 'login':
+            $email = filter_input(INPUT_POST, 'email');
+            $password = filter_input(INPUT_POST, 'password');
+            $message = "";
+
+            $message .= Validation::isNotEmpty($email, "Email");
+            $message .= Validation::isNotEmpty($password, "Password");
+            include('view/login.php');
+            break;
+
+        case 'sign_up':
+
+            $username = filter_input(INPUT_POST, 'username');
+            $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
+            $password = filter_input(INPUT_POST, 'password');
+            $message = "";
+
+            UserDA::insert_user($username, $password_hash, $email);
+            include("view/profile.php");
+            break;
+
+            // $message .= Validation::isNotEmpty($username, "Username");
+            // $message .= Validation::isNotEmpty($email, "Email");
+            // $message .= Validation::isNotEmpty($password, "Password");
+
+            // $message .= Validation::validUsername($username, "Username");
+
+            // $password_hash = Validation::passwordValidation($password);
+
+            // if(!UserDA::isEmailAvailable($email)) {
+            //     $message .= "Email is taken" . "\n";
+            // }
+            
+            // if(!UserDA::isUserAvailable($username)) {
+            //     $message .= "Username is taken" . "\n";
+            // }
+            
+            // if($password_hash === false) {
+            //     $message .= "Password requires a digit, special character, an uppercase letter, and must be 10+ characters long" . "\n";
+            // }
+
+            // if($message == "") {
+                
+            // } else {
+            //     include("view/sign_up.php");
+            // }
     
-</body>
-</html>
+        
+
+    }
+?>
