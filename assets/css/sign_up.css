@@ -1,0 +1,161 @@
+nav {
+    position: relative;
+    left: 0%;
+    transform: none;
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 1em;
+}
+
+nav #logo a {
+    text-decoration: none;
+    color: coral;
+}
+
+nav #nav-list .nav-item {
+    color: black;
+}
+
+.nav-item a {
+    text-decoration: none;
+    color: white;
+}
+
+.login-form {
+    display: none;
+    max-width: 600px;
+    width: 95vw;
+    height: auto;
+    margin: 0 auto;
+    padding: 1em;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: left;
+}
+
+.login-form.active {
+    display: flex;
+}
+
+.login-form h1 {
+    color: coral;
+    font-size: 3.0em;
+    margin-bottom: .5em;
+}
+
+.login-form .input-group {
+    position: relative;
+    width: 65%;
+    display: flex;
+    margin-bottom: 1em;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.login-form .input-group label {
+    position: relative;
+    width: 100%;
+    color: coral;
+    margin-bottom: 5px;
+}
+
+.login-form .input-group input {
+    position: relative;
+    width: 100%;
+    padding: 1em 0;
+    border: none;
+    background: #eee;
+}
+
+.login-form .input-group input:focus {
+    outline: none;
+    background: rgba(180, 180, 180, 1);
+}
+
+.login-form input[type="submit"] {
+    padding: 1.5em 0em;
+    margin-top: 2em;
+    width: 65%;
+    font-size: 1.4em;
+    background-color: coral;
+    color: white;
+    border: none;
+    border-radius: 3px;
+}
+
+
+.login-form input[type="submit"]:hover {
+    cursor: pointer;
+    color: white;
+    background: #ffa483;
+}
+
+.login-form input[type="submit"]:active {
+    background: #ff5a1d;
+}
+
+.login-form #sign-up {
+    margin-top: 1em;
+    width: 65%;
+    text-align: right;
+}
+
+.login-form #sign-up a {
+    text-decoration: none;
+    color: coral;
+}
+
+.login-form #sign-up a:hover {
+    text-decoration: underline;
+    color: coral;
+}
+
+#error_msg {
+    position: relative;
+    margin: 0 auto;
+    text-align: center;
+    color: coral;
+    font-size: 1.3em;
+    max-width: 600px;
+    width: 95vw;
+    padding: 1.3em;
+}
+
+.page-heading {
+    position: relative;
+    text-align: center;
+    max-width: 600px;
+    width: 95vw;
+    margin: 0 auto;
+    color: coral;
+    font-size: 3.0em;
+    margin-bottom: .5em;
+}
+
+#team-player-signup {
+    max-width: 600px;
+    width: 95vw;
+    display: flex;
+    justify-content: center;
+    margin: .5em auto;
+    padding: 1em;
+}
+
+#team-player-signup h3 {
+    width: calc(65%/2);
+    color: grey;
+    padding: 1em;
+    text-align: center;
+}
+
+#team-player-signup h3:hover {
+    cursor: pointer;
+    color: coral;
+}
+
+#team-player-signup h3.active {
+    color: white;
+    background: coral;
+}
